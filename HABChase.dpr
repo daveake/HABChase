@@ -3,7 +3,7 @@ program HABChase;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  Main in 'Main.pas' {Form1},
+  Main in 'Main.pas' {frmMain},
   Sondehub in '..\HABRx\Sondehub.pas',
   Miscellaneous in '..\HABRx\Miscellaneous.pas',
   GPSSource in '..\HABRx\GPSSource.pas',
@@ -13,6 +13,6 @@ uses
 
 begin
   Application.Initialize;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
 end.

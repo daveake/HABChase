@@ -1,4 +1,4 @@
-object Form1: TForm1
+object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'HAB Chase Uploader'
@@ -4760,10 +4760,11 @@ object Form1: TForm1
     Size.PlatformDefault = False
     WrapMode = Stretch
     object lblTitle: TLabel
+      Tag = 2
       Align = Top
       StyledSettings = [Family]
       Size.Width = 360.000000000000000000
-      Size.Height = 65.000000000000000000
+      Size.Height = 61.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Size = 36.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4775,27 +4776,28 @@ object Form1: TForm1
     object tmrGPS: TTimer
       Enabled = False
       OnTimer = tmrGPSTimer
-      Left = 286
-      Top = 742
+      Left = 310
+      Top = 806
     end
     object Rectangle1: TRectangle
-      Align = Top
+      Align = Scale
       Fill.Kind = None
-      Margins.Left = 30.000000000000000000
-      Margins.Top = 15.000000000000000000
-      Margins.Right = 30.000000000000000000
-      Margins.Bottom = 15.000000000000000000
-      Position.X = 30.000000000000000000
-      Position.Y = 80.000000000000000000
-      Size.Width = 300.000000000000000000
-      Size.Height = 228.000000000000000000
+      Margins.Left = 15.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 66.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 211.000000000000000000
       Size.PlatformDefault = False
       object lblLatitude: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 41.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4803,11 +4805,12 @@ object Form1: TForm1
         TabOrder = 3
       end
       object lblAltitude: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 161.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.Y = 153.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4815,11 +4818,12 @@ object Form1: TForm1
         TabOrder = 2
       end
       object lblLongitude: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 101.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.Y = 88.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4827,101 +4831,259 @@ object Form1: TForm1
         TabOrder = 0
       end
       object Label4: TLabel
-        Align = Top
+        Align = Scale
         StyledSettings = [Family]
-        Margins.Left = 16.000000000000000000
-        Position.X = 16.000000000000000000
-        Size.Width = 284.000000000000000000
-        Size.Height = 41.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.HorzAlign = Center
         Text = 'GPS Position'
         TabOrder = 1
       end
+      object pnlNewCallsign: TPanel
+        Align = Client
+        Size.Width = 330.000000000000000000
+        Size.Height = 211.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 4
+        object Button1: TButton
+          Align = Scale
+          StyledSettings = [Family, Style, FontColor]
+          Position.X = 226.000000000000000000
+          Position.Y = 135.642852783203100000
+          Size.Width = 78.000000000000000000
+          Size.Height = 58.132644653320310000
+          Size.PlatformDefault = False
+          TabOrder = 5
+          Text = #10003
+          TextSettings.Font.Size = 32.000000000000000000
+          TextSettings.Trimming = None
+          OnClick = Button1Click
+        end
+        object Edit1: TEdit
+          Touch.InteractiveGestures = [LongTap, DoubleTap]
+          Align = Top
+          TabOrder = 4
+          Text = '12345'
+          Position.X = 30.000000000000000000
+          Position.Y = 49.000000000000000000
+          Margins.Left = 30.000000000000000000
+          Margins.Right = 30.000000000000000000
+          Size.Width = 270.000000000000000000
+          Size.Height = 48.000000000000000000
+          Size.PlatformDefault = False
+          StyledSettings = [Family, Style, FontColor]
+        end
+        object Button2: TButton
+          Align = Scale
+          StyledSettings = [Family, Style, FontColor]
+          Position.X = 27.000000000000000000
+          Position.Y = 135.642852783203100000
+          Size.Width = 78.000000000000000000
+          Size.Height = 58.132644653320310000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          Text = #10008
+          TextSettings.Font.Size = 32.000000000000000000
+          TextSettings.Trimming = None
+          OnClick = Button2Click
+        end
+        object Label11: TLabel
+          Align = Top
+          Size.Width = 330.000000000000000000
+          Size.Height = 49.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.HorzAlign = Center
+          Text = 'New Callsign'
+          TabOrder = 6
+        end
+      end
     end
     object Rectangle2: TRectangle
-      Align = Top
+      Align = Scale
       Fill.Kind = None
-      Margins.Left = 30.000000000000000000
+      Margins.Left = 15.000000000000000000
       Margins.Top = 5.000000000000000000
-      Margins.Right = 30.000000000000000000
-      Margins.Bottom = 5.000000000000000000
-      Position.X = 30.000000000000000000
-      Position.Y = 328.000000000000000000
-      Size.Width = 300.000000000000000000
-      Size.Height = 202.000000000000000000
+      Margins.Right = 15.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 293.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 294.000000000000000000
       Size.PlatformDefault = False
       object lblCallsign: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 41.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        HitTest = True
+        Position.Y = 32.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.HorzAlign = Center
         Text = 'M0RPI_TEST'
         TabOrder = 0
+        OnClick = lblCallsignClick
       end
       object Label5: TLabel
-        Align = Top
+        Align = Scale
         StyledSettings = [Family]
-        Margins.Left = 16.000000000000000000
-        Position.X = 16.000000000000000000
-        Size.Width = 284.000000000000000000
-        Size.Height = 41.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.HorzAlign = Center
-        Text = 'Callsign'
-        TabOrder = 2
+        Text = 'Callsign (touch to change)'
+        TabOrder = 3
       end
       object Label7: TLabel
-        Align = Top
+        Align = Scale
         StyledSettings = [Family]
-        Margins.Left = 16.000000000000000000
-        Position.X = 16.000000000000000000
-        Position.Y = 101.000000000000000000
-        Size.Width = 284.000000000000000000
-        Size.Height = 41.000000000000000000
+        Position.Y = 89.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 40.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.HorzAlign = Center
+        Text = 'Upload To'
+        TabOrder = 2
+      end
+      object Rectangle4: TRectangle
+        Align = Scale
+        Fill.Kind = None
+        Margins.Bottom = 6.000000000000000000
+        Position.Y = 129.000000000000000000
+        Sides = []
+        Size.Width = 330.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        object Label1: TLabel
+          Align = Scale
+          StyledSettings = [Family]
+          Margins.Left = 16.000000000000000000
+          Position.X = 16.000000000000000000
+          Size.Width = 89.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.HorzAlign = Trailing
+          Text = 'Amateur (HAB)'
+          TabOrder = 4
+        end
+        object Label2: TLabel
+          Align = Scale
+          StyledSettings = [Family]
+          Margins.Left = 16.000000000000000000
+          Position.X = 226.000000000000000000
+          Size.Width = 105.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          Text = 'Pro (Sonde)'
+          TabOrder = 2
+        end
+        object Switch2: TSwitch
+          Align = Scale
+          IsChecked = False
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 6.000000000000000000
+          Margins.Bottom = 6.000000000000000000
+          Position.X = 124.000000000000000000
+          Position.Y = 3.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          OnClick = Switch2Click
+        end
+      end
+      object Rectangle5: TRectangle
+        Align = Scale
+        Fill.Kind = None
+        Position.Y = 223.000000000000000000
+        Sides = []
+        Size.Width = 330.000000000000000000
+        Size.Height = 50.000000000000000000
+        Size.PlatformDefault = False
+        object Label3: TLabel
+          Align = Scale
+          StyledSettings = [Family]
+          Margins.Left = 16.000000000000000000
+          Size.Width = 105.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.HorzAlign = Trailing
+          Text = 'OFF'
+          TabOrder = 4
+        end
+        object Label6: TLabel
+          Align = Scale
+          StyledSettings = [Family]
+          Margins.Left = 16.000000000000000000
+          Position.X = 221.000000000000000000
+          Position.Y = -4.000000000000000000
+          Size.Width = 105.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          Text = 'ON'
+          TabOrder = 2
+        end
+        object Switch1: TSwitch
+          Align = Scale
+          IsChecked = False
+          Margins.Left = 3.000000000000000000
+          Margins.Top = 3.000000000000000000
+          Margins.Right = 6.000000000000000000
+          Margins.Bottom = 6.000000000000000000
+          Position.X = 124.000000000000000000
+          Position.Y = -1.000000000000000000
+          Size.Width = 80.000000000000000000
+          Size.Height = 41.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 3
+          OnClick = Switch1Click
+        end
+      end
+      object Label8: TLabel
+        Align = Scale
+        StyledSettings = [Family]
+        Margins.Top = 6.000000000000000000
+        Position.X = -4.000000000000000000
+        Position.Y = 187.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.HorzAlign = Center
         Text = 'Enable Upload'
         TabOrder = 1
       end
-      object Switch1: TSwitch
-        Align = Scale
-        IsChecked = False
-        Position.X = 120.000000000000000000
-        Position.Y = 147.000000000000000000
-        Size.Width = 73.000000000000000000
-        Size.Height = 38.000000000000000000
-        Size.PlatformDefault = False
-        TabOrder = 3
-        OnClick = Switch1Click
-      end
     end
     object Rectangle3: TRectangle
-      Align = Top
+      Align = Scale
       Fill.Kind = None
-      Margins.Left = 30.000000000000000000
-      Margins.Top = 15.000000000000000000
-      Margins.Right = 30.000000000000000000
+      Margins.Left = 15.000000000000000000
+      Margins.Top = 5.000000000000000000
+      Margins.Right = 15.000000000000000000
       Margins.Bottom = 15.000000000000000000
-      Position.X = 30.000000000000000000
-      Position.Y = 550.000000000000000000
-      Size.Width = 300.000000000000000000
-      Size.Height = 202.000000000000000000
+      Position.X = 15.000000000000000000
+      Position.Y = 601.000000000000000000
+      Size.Width = 330.000000000000000000
+      Size.Height = 184.000000000000000000
       Size.PlatformDefault = False
       object lblTimeSinceUpload: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 41.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.Y = 32.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4929,12 +5091,10 @@ object Form1: TForm1
         TabOrder = 1
       end
       object Label9: TLabel
-        Align = Top
+        Align = Scale
         StyledSettings = [Family]
-        Margins.Left = 16.000000000000000000
-        Position.X = 16.000000000000000000
-        Size.Width = 284.000000000000000000
-        Size.Height = 41.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.HorzAlign = Center
@@ -4942,13 +5102,11 @@ object Form1: TForm1
         TabOrder = 3
       end
       object Label10: TLabel
-        Align = Top
+        Align = Scale
         StyledSettings = [Family]
-        Margins.Left = 16.000000000000000000
-        Position.X = 16.000000000000000000
-        Position.Y = 101.000000000000000000
-        Size.Width = 284.000000000000000000
-        Size.Height = 41.000000000000000000
+        Position.Y = 89.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 32.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.HorzAlign = Center
@@ -4956,11 +5114,12 @@ object Form1: TForm1
         TabOrder = 2
       end
       object lblResult: TLabel
-        Align = Top
+        Tag = 2
+        Align = Scale
         StyledSettings = [Family]
-        Position.Y = 142.000000000000000000
-        Size.Width = 300.000000000000000000
-        Size.Height = 60.000000000000000000
+        Position.Y = 121.000000000000000000
+        Size.Width = 330.000000000000000000
+        Size.Height = 63.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 36.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
@@ -4968,6 +5127,11 @@ object Form1: TForm1
         TabOrder = 0
       end
     end
+  end
+  object tmrUpdate: TTimer
+    OnTimer = tmrUpdateTimer
+    Left = 208
+    Top = 816
   end
   object LocationSensor: TLocationSensor
     Optimize = False
@@ -4976,11 +5140,6 @@ object Form1: TForm1
     Distance = 1.000000000000000000
     UsageAuthorization = WhenInUse
     Left = 50
-    Top = 742
-  end
-  object tmrUpdate: TTimer
-    OnTimer = tmrUpdateTimer
-    Left = 208
-    Top = 744
+    Top = 814
   end
 end
