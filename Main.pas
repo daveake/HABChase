@@ -51,6 +51,9 @@ type
     Edit1: TEdit;
     Button2: TButton;
     Label11: TLabel;
+    Rectangle6: TRectangle;
+    Rectangle7: TRectangle;
+    Rectangle8: TRectangle;
     procedure FormResize(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -69,10 +72,12 @@ type
 {$IFDEF MSWINDOWS}
     procedure GPSCallback(ID: Integer; Connected: Boolean; Line: String; Position: THABPosition);
 {$ENDIF}
+{$IFDEF ANDROID}
+    procedure EnableGPS;
+{$ENDIF}
     procedure SondehubStatusCallback(SourceID: Integer; Active, OK: Boolean; Status: String);
     procedure UpdateCarUploadSettings;
     procedure NewGPSPosition(Timestamp: TDateTime; Latitude, Longitude, Altitude: Double);
-    procedure EnableGPS;
   procedure EditMode(Mode: Boolean);
   public
     { Public declarations }
@@ -137,12 +142,14 @@ begin
     GPS := TGPSSource.Create(GPS_SOURCE, 'GPS', GPSCallback);
 {$ENDIF}
 {$IFDEF ANDROID}
-    PermissionsService.RequestPermissions([JStringToString(TJManifest_permission.JavaClass.ACCESS_FINE_LOCATION)],
+    PermissionsService.RequestPermissions([JStringToString(TJManifest_permission.JavaClass.ACCESS_FINE_LOCATION), JStringToString(TJManifest_permission.JavaClass.ACCESS_BACKGROUND_LOCATION)],
         procedure(const APermissions: TClassicStringDynArray; const AGrantResults: TClassicPermissionStatusDynArray) begin
-            if (Length(AGrantResults) = 1) and (AGrantResults[0] = TPermissionStatus.Granted) then begin
+            if (Length(AGrantResults) >= 1) and (AGrantResults[0] = TPermissionStatus.Granted) then begin
                 // activate or deactivate the location sensor }
+                    lblAltitude.Text := 'Enabled';
                     EnableGPS;
                 end else begin
+                    lblAltitude.Text := 'GPS Disabled';
                     // frmSources.SetGPSStatus('No GPS Permission');
                 end;
             end);
@@ -177,7 +184,7 @@ end;
 
 procedure TfrmMain.UpdateCarUploadSettings;
 begin
-    SondehubUploader.SetListener('HAB Chase', 'V1.0.0',
+    SondehubUploader.SetListener('HAB Chase', 'V1.1',
                                  GetSettingString('CHASE', 'Callsign', ''),
                                  True,
                                  GetSettingInteger('CHASE', 'Period', 15),
@@ -211,19 +218,27 @@ begin
     UpdateCarUploadSettings;
 end;
 
+{$IFDEF ANDROID}
 procedure TfrmMain.EnableGPS;
 begin
     LocationSensor.Active := True;
     tmrGPS.Enabled := True;
 end;
+{$ENDIF}
 
 procedure TfrmMain.tmrGPSTimer(Sender: TObject);
+{$IFDEF ANDROID}
 var
     UTC: TDateTime;
+{$ENDIF}
 begin
-    UTC := TTimeZone.Local.ToUniversalTime(Now);
+{$IFDEF ANDROID}
+    if LocationSensor.Accuracy < 30 then begin
+        UTC := TTimeZone.Local.ToUniversalTime(Now);
 
-    NewGPSPosition(UTC, LocationSensor.Sensor.Latitude, LocationSensor.Sensor.Longitude, LocationSensor.Sensor.Altitude);
+        NewGPSPosition(UTC, LocationSensor.Sensor.Latitude, LocationSensor.Sensor.Longitude, LocationSensor.Sensor.Altitude);
+    end;
+{$ENDIF}
 end;
 
 procedure TfrmMain.tmrUpdateTimer(Sender: TObject);

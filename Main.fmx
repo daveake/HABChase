@@ -4791,6 +4791,14 @@ object frmMain: TfrmMain
       Size.Width = 330.000000000000000000
       Size.Height = 211.000000000000000000
       Size.PlatformDefault = False
+      object Rectangle8: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Opacity = 0.200000002980232200
+        Size.Width = 330.000000000000000000
+        Size.Height = 211.000000000000000000
+        Size.PlatformDefault = False
+      end
       object lblLatitude: TLabel
         Tag = 2
         Align = Scale
@@ -4912,6 +4920,14 @@ object frmMain: TfrmMain
       Size.Width = 330.000000000000000000
       Size.Height = 294.000000000000000000
       Size.PlatformDefault = False
+      object Rectangle6: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Opacity = 0.200000002980232200
+        Size.Width = 330.000000000000000000
+        Size.Height = 294.000000000000000000
+        Size.PlatformDefault = False
+      end
       object lblCallsign: TLabel
         Tag = 2
         Align = Scale
@@ -5077,11 +5093,19 @@ object frmMain: TfrmMain
       Size.Width = 330.000000000000000000
       Size.Height = 184.000000000000000000
       Size.PlatformDefault = False
+      object Rectangle7: TRectangle
+        Align = Client
+        Fill.Color = claWhite
+        Opacity = 0.200000002980232200
+        Size.Width = 330.000000000000000000
+        Size.Height = 184.000000000000000000
+        Size.PlatformDefault = False
+      end
       object lblTimeSinceUpload: TLabel
         Tag = 2
         Align = Scale
         StyledSettings = [Family]
-        Position.Y = 32.000000000000000000
+        Position.Y = 24.000000000000000000
         Size.Width = 330.000000000000000000
         Size.Height = 57.000000000000000000
         Size.PlatformDefault = False
